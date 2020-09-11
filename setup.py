@@ -4,7 +4,7 @@ from setuptools import (
 )
 
 about = {}
-with open("python_singleton_metaclasses/__about__.py") as fp:
+with open("pysingleton/__about__.py") as fp:
     exec(fp.read(), about)
 
 with open("README.md", "r") as fp:
@@ -22,5 +22,5 @@ setup(name='python-singleton-metaclasses',
       packages=find_packages(),
       python_requires='>=3.7',
       install_requires=[],
-      package_data={'python_singleton_metaclasses': ['config/*']},
+      package_data={'pysingleton': ['config/*']},
       )
