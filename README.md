@@ -117,3 +117,16 @@ print("id(my_memoized_2): {:#x}".format(id(my_memoized_2)))
 print("id(my_memoized_3): {:#x}".format(id(my_memoized_3)))
 
 ```
+
+```console
+python3 ./examples/memoized-example.py
+my_memoized_1.value: 1
+my_memoized_2.value: 1
+my_memoized_1.value == my_memoized_2.value: True
+my_memoized_1.value: 7
+my_memoized_3.value: 3
+my_memoized_1.value == my_memoized_3.value: False
+id(my_memoized_1): 0x100773b80
+id(my_memoized_2): 0x100773b80
+id(my_memoized_3): 0x100818340
+```
