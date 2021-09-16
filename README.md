@@ -18,6 +18,16 @@ This is useful in situations where a singleton is called for if the arguments ar
 
 For example, if an object parses a file, there may be no need to parse the same file more than once. So all instantiations of the parser on the same file result in the same object instance. But for a new file that has yet to be parsed, a new instance will be created.
 
+## Alowing Object Cleanup
+
+One drawback is the singleton (and memoized) object does not get freed. If it is desired for the singleton objects to be destroyed no longer required, there are a couple of options:
+
+- In the class definition, declare a class variable, `_PYSINGLETON_WEAKREF = True` (or `_PYMEMOIZED_WEAKREF` as appropriate)
+- Create an environment variable constructed from the class name and set it to '1':
+  - `export MySingleton_WEAKREF=1`
+
+This causes instances to be tracked by the metaclass using weak references. The garbage collector will destroy them when the last normal reference has gone out of scope. The next time the class is instantiated, a new instance will be created.
+
 ## Examples
 
 ---
