@@ -1,0 +1,38 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-json
+        exclude: ^\.vscode/
+      - id: check-yaml
+      - id: check-merge-conflict
+  - repo: https://gitlab.com/PyCQA/flake8
+    rev: 3.9.2
+    hooks:
+    - id: flake8
+  - repo: https://github.com/pycqa/isort
+    rev: 5.9.2
+    hooks:
+      - id: isort
+        name: isort (python)
+        args:
+          - "--multi-line"
+          - "3"
+          - "--show-config"
+      - id: isort
+        name: isort (cython)
+        types: [cython]
+        args:
+          - "--multi-line"
+          - "3"
+      - id: isort
+        name: isort (pyi)
+        types: [pyi]
+        args:
+          - "--multi-line"
+          - "3"
+  - repo: https://github.com/pre-commit/mirrors-autopep8
+    rev: 'v1.5.7'
+    hooks:
+    - id: autopep8
+      exclude: .*legacy\/operation_node\.py$
